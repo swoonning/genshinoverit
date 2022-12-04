@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rarity: 1
+  element_id: 1
+  constellation: MyString
+  description: MyString
+
+two:
+  name: MyString
+  rarity: 1
+  element_id: 1
+  constellation: MyString
+  description: MyString
