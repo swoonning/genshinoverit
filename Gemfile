@@ -13,6 +13,10 @@ gem 'bootstrap-sass'
 gem 'bootstrap'
 gem "jquery-ui-rails"
 gem 'font-awesome-sass'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'kaminari'
+
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -78,3 +82,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.0"
