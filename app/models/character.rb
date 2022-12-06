@@ -4,4 +4,6 @@ class Character < ApplicationRecord
   validates :name, :rarity, :constellation, :description, presence: true
 
   paginates_per 10
+
+  has_one_attached :image
 end

@@ -16,6 +16,7 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'kaminari'
+gem 'image_processing'
 
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

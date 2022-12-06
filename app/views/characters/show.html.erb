@@ -3,3 +3,8 @@
 <p><%= @character.element.element%></p>
 <p><%= @character.constellation%></p>
 <p><%= @character.description%></p>
+<% if @character.image.present?%>
+<div class="card-image">
+      <figure class="image"><%= image_tag @character.image%></figure>
+</div>
+<% end %>

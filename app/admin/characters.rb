@@ -1,7 +1,15 @@
 ActiveAdmin.register Character do
 
-  permit_params :name, :rarity, :description, :element_id, :constellation
+  permit_params :name, :rarity, :description, :element_id, :constellation, :image
 
+
+form do |f|
+  f.semantic_errors
+  f.inputs
+  f.inputs do
+    f.input :image, as: :file
+    f.actions
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -18,3 +26,5 @@ ActiveAdmin.register Character do
   # end
 
 end
+end
+
