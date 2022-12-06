@@ -6,11 +6,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Element.create(element: "Pyro")
-Element.create(element: "Hydro")
-Element.create(element: "Electro")
-Element.create(element: "Anemo")
-Element.create(element: "Cryo")
-Element.create(element: "Geo")
-Element.create(element: "Dendro")
+
 Character.create(name: "Kamisato Ayato", rarity:5, element_id: 1, constellation: "Cypressus Custos", description: "The young but highly accomplished head of the Yashiro Commission’s Kamisato Clan. Cultured and polite, he is a man of many ways and means.")

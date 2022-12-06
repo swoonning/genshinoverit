@@ -9,6 +9,10 @@ gem "rails", "~> 7.0.4"
 gem "activeadmin"
 gem "sass-rails"
 gem "devise"
+gem 'bootstrap-sass'
+gem 'bootstrap'
+gem "jquery-ui-rails"
+gem 'font-awesome-sass'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

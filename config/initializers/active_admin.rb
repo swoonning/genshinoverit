@@ -6,6 +6,8 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Genshin Over It"
 
+  config.display_name_methods = [:display_name]
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
