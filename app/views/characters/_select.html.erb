@@ -1,0 +1,10 @@
+<%= form_with(url: sort_path, local: true, method: "get", action: "/sort") do %>
+<select name="query" class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <% @elements.each do |e|%>
+  <option value="<%= e.id%>"><%=e.element%></option>
+  <% end %>
+  </select>
+     <button type="submit" class="btn btn-primary">Sort</button>
+  </form>
+  <% end %>
