@@ -7,6 +7,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @elements = Element.all
   end
 
   def sort
@@ -21,6 +22,11 @@ class CharactersController < ApplicationController
 
   def hype
     @hype = Character.where("created_at >= ?", 3.days.ago).page(params[:page])
+    @elements = Element.all
+  end
+
+  def search
+    @returned = Character.where('name LIKE ?', "%#{params[:search]}%").or(Character.where('description LIKE ?', "%#{params[:search]}%")).page(params[:page])
     @elements = Element.all
   end
 

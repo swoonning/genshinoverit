@@ -16,7 +16,17 @@
           <a class="nav-link active" aria-current="page" href="/hype">New Releases</a>
         </li>
       </ul>
-
+<select name="query" class="form-select" aria-label="Default select example">
+  <option selected>Filter your Search</option>
+  <% @elements.each do |e|%>
+  <option value="<%= e.id%>"><%=e.element%></option>
+  <% end %>
+  </select>
+  </form>
+      <form action="search" class="d-flex" role="search">
+        <input name= "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>

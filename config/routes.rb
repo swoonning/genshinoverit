@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/sort', to: "characters#sort"
   get '/recent', to: "characters#recent"
   get '/hype', to: "characters#hype"
+  get '/search', to: "characters#search"
 
   # Defines the root path route ("/")
   root "characters#index"
