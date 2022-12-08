@@ -26,8 +26,14 @@ class CharactersController < ApplicationController
   end
 
   def search
-    @returned = Character.where('name LIKE ?', "%#{params[:search]}%").or(Character.where('description LIKE ?', "%#{params[:search]}%")).page(params[:page])
+    @drop = params[:search]
     @elements = Element.all
+    if params[:filter] == "0"
+      @returned = Character.where("lower(name) LIKE :search OR lower(description) LIKE :search",
+      search: "%#{@drop}%").page(params[:page])
+    else
+    @returned = Character.where(element_id: params[:filter]).where("lower(name) LIKE :search OR lower(description) LIKE :search",
+    search: "%#{@drop}%").page(params[:page])
+    end
   end
-
 end
