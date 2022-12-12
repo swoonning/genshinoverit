@@ -1,3 +1,4 @@
+<script src="https://js.stripe.com/v3"></script>
 <div class="row">
 <div class="col-sm-6">
 <div class="card" style="width: 18rem;">
@@ -7,6 +8,7 @@
     <p class="card-text"><%= character.element.element %></p>
     <p class="card-text"><%= character.rarity %>-Star</p>
     <p class="card-text"><%= character.description %></p>
+    <p><%= button_to "Buy now!", checkout_create_path, params: {id: character.id}, remote: true %></p>
   </div>
 </div>
 </div>
