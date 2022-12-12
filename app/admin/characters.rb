@@ -1,6 +1,6 @@
 ActiveAdmin.register Character do
 
-  permit_params :name, :rarity, :description, :element_id, :constellation, :image
+  permit_params :name, :rarity, :description, :element_id, :constellation, :image, :price
 
 
 form do |f|

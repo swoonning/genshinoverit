@@ -21,11 +21,11 @@
       <form action="search" class="d-flex" role="search">
         <input name= "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <select name="filter" class="form-select" aria-label="Default select example">
-  <option selected value="0">Filter your Search</option>
-  <% @elements.each do |e|%>
-  <option value="<%= e.id%>"><%=e.element%></option>
-  <% end %>
-  </select>
+        <option selected value="0">Filter your Search</option>
+           <% @elements.each do |e|%>
+              <option value="<%= e.id%>"><%=e.element%></option>
+            <% end %>
+        </select>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
