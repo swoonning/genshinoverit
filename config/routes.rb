@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :characters, only: %i[index show sort recent hype]
   resources :elements, only: %i[index]
+  resources :webhooks, only: %i[create]
 
 
   get '/sort', to: "characters#sort"
@@ -14,4 +16,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "characters#index"
+
+
 end
