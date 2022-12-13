@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_13_130257) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_13_132754) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_130257) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.integer "sales_count", default: 0, null: false
+    t.string "stripe_product_id"
     t.index ["element_id"], name: "index_characters_on_element_id"
     t.index ["element_id_id"], name: "index_characters_on_element_id_id"
   end
