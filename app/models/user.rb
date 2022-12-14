@@ -7,10 +7,12 @@ class User < ApplicationRecord
 
   def to_s
     email
+    address
   end
 
   after_create do
-    customer = Stripe::Customer.create(email: email)
+    customer = Stripe::Customer.create(email: email, address: {line1: address})
     update(stripe_customer_id: customer.id)
+    update(stripe_customer_address: customer.address.line1)
   end
 end
