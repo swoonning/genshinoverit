@@ -9,7 +9,14 @@
     <p class="card-text"><%= character.rarity %>-Star</p>
     <p class="card-text"><%= character.description %></p>
     <p class="card-text"><%= number_to_currency(character.price/100) %></p>
-    <p><%= button_to "Buy now!", checkout_create_path, params: {id: character.id}, remote: true %></p>
+    <p>
+      <% if @cart.include?(character) %>
+        <%= button_to "Remove from cart", remove_from_cart_path(character), method: :delete %>
+      <% else %>
+        <%= button_to "Add to cart", add_to_cart_path(character)%>
+      <% end %>
+    </p>
+
   </div>
 </div>
 </div>

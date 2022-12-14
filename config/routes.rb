@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get '/recent', to: "characters#recent"
   get '/hype', to: "characters#hype"
   get '/search', to: "characters#search"
+  get '/cart', to: "characters#cart"
   post "checkout/create", to: "checkout#create"
+  post "characters/add_to_cart/:id", to: "characters#add_to_cart", as: "add_to_cart"
+  delete "characters/remove_from_cart/:id", to: "characters#remove_from_cart", as: "remove_from_cart"
 
   # Defines the root path route ("/")
   root "characters#index"

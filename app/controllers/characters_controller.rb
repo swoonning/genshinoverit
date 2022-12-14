@@ -25,6 +25,10 @@ class CharactersController < ApplicationController
     @elements = Element.all
   end
 
+  def cart
+    @elements = Element.all
+  end
+
   def search
     @drop = params[:search]
     @elements = Element.all
@@ -35,5 +39,17 @@ class CharactersController < ApplicationController
     @returned = Character.where(element_id: params[:filter]).where("lower(name) LIKE :search OR lower(description) LIKE :search",
     search: "%#{@drop}%").page(params[:page])
     end
+  end
+
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to characters_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to characters_path
   end
 end
