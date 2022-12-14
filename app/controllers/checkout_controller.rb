@@ -2,6 +2,7 @@ class CheckoutController < ApplicationController
   def create
     character = Character.find(params[:id])
     @session = Stripe::Checkout::Session.create({
+
       customer: current_user.stripe_customer_id,
       customer_update: {
         address: 'auto',

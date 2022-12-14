@@ -18,12 +18,12 @@
     <% if current_user%>
       <%= link_to current_user.email, edit_user_registration_path %>
       <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      <%= current_user.stripe_customer_id %>
+      <%= render partial: 'layouts/navbar'%>
     <% else %>
       <%= link_to "Log In", new_user_session_path %>
       <%= link_to "Register", new_user_registration_path %>
     <% end %>
-    <%= render partial: 'layouts/navbar' unless 'users'%>
+
     <%= yield %>
   </body>
 </html>
