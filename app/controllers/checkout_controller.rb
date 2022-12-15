@@ -26,8 +26,10 @@ class CheckoutController < ApplicationController
 
   def success
     if params[:session_id].present?
+      session = Stripe::Checkout::Session.retrieve(params[:session_id])
       session[:cart] = []
       @elements = Element.all
+      @order = Order.create(customer_belong: session.customer, stripe_order_id: session.payment_intent)
       session_with_expand = Stripe::Checkout::Session.retrieve({
         id: params[:session_id],
         expand: ["line_items"]
