@@ -11,6 +11,7 @@ class Character < ApplicationRecord
     Jbuilder.new do |character|
       character.quantity 1
       character.price stripe_price_id
+      character.adjustable_quantity enabled:true
     end
   end
 
