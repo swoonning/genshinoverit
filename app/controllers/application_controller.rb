@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!
-    before_action :configure_permitted_parameters, if: :devise_controller?
-    before_action :initialize_session
-    before_action :load_cart
-    before_action :set_cache_headers
-
-
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :initialize_session
+  before_action :load_cart
+  before_action :set_cache_headers
 
   private
 
@@ -22,7 +20,6 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart = Character.find(session[:cart])
   end
-
 
   protected
 

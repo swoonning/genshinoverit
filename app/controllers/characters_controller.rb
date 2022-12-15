@@ -1,5 +1,4 @@
 class CharactersController < ApplicationController
-
   def index
     @characters = Character.order(:name).page(params[:page])
     @elements = Element.all
@@ -16,7 +15,8 @@ class CharactersController < ApplicationController
   end
 
   def recent
-    @recent = Character.where("updated_at <= ?", 3.days.ago).where("updated_at != created_at").page(params[:page])
+    @recent = Character.where("updated_at <= ?",
+                              3.days.ago).where("updated_at != created_at").page(params[:page])
     @elements = Element.all
   end
 
@@ -32,13 +32,13 @@ class CharactersController < ApplicationController
   def search
     @drop = params[:search]
     @elements = Element.all
-    if params[:filter] == "0"
-      @returned = Character.where("lower(name) LIKE :search OR lower(description) LIKE :search",
-      search: "%#{@drop}%").page(params[:page])
-    else
-    @returned = Character.where(element_id: params[:filter]).where("lower(name) LIKE :search OR lower(description) LIKE :search",
-    search: "%#{@drop}%").page(params[:page])
-    end
+    @returned = if params[:filter] == "0"
+                  Character.where("lower(name) LIKE :search OR lower(description) LIKE :search",
+                                  search: "%#{@drop}%").page(params[:page])
+                else
+                  Character.where(element_id: params[:filter]).where("lower(name) LIKE :search OR lower(description) LIKE :search",
+                                                                     search: "%#{@drop}%").page(params[:page])
+                end
   end
 
   def add_to_cart
