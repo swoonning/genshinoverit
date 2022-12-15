@@ -42,12 +42,14 @@ class CharactersController < ApplicationController
   end
 
   def add_to_cart
+    flash[:notice] = "Added to cart"
     id = params[:id].to_i
     session[:cart] << id unless session[:cart].include?(id)
     redirect_to characters_path
   end
 
   def remove_from_cart
+    flash[:notice] = "Removed from cart"
     id = params[:id].to_i
     session[:cart].delete(id)
     redirect_to characters_path
