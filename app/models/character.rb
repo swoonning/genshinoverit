@@ -1,7 +1,8 @@
 class Character < ApplicationRecord
   belongs_to :element
 
-  validates :name, :rarity, :constellation, :description, presence: true
+  validates :name, :constellation, :description, presence: true
+  validates :rarity, :price, numericality: { only_integer: true }
 
   paginates_per 10
 
@@ -11,7 +12,7 @@ class Character < ApplicationRecord
     Jbuilder.new do |character|
       character.quantity 1
       character.price stripe_price_id
-      character.adjustable_quantity enabled:true
+      character.adjustable_quantity enabled: true
     end
   end
 
